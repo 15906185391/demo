@@ -1,17 +1,18 @@
 import sys
 
-from PyQt5 import QtWidgets
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PySide6 import QtWidgets
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtWidgets import *
 from MainWindow import Ui_MainWindow
-import cv2
+import cv2.cv2 as cv
 import DahengCamera
 
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        self.cap = None
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
@@ -47,12 +48,16 @@ class MainWindow(QtWidgets.QMainWindow):
     """ 点击CloseCamera"""
 
     def PB_CloseCamera_clicked(self):
+        DahengCamera.Save_img()
         self.Camera.CloseCamera(1)
         if self.TimerForShowImageInGraphicsView.isActive():
             self.TimerForShowImageInGraphicsView.stop()
         DahengCamera.num = 0
-
+        self.cap = True
         self.UpdateUI()
+
+    def PB_Save_clicked(self):
+        DahengCamera.Save_img()
 
     """ 图像显示回调函数"""
 
@@ -60,14 +65,14 @@ class MainWindow(QtWidgets.QMainWindow):
         if DahengCamera.rawImageUpdate is None:
             return
         else:
-            ImageShow = DahengCamera.rawImageUpdateList[0]
-            ImageRatio = float(ImageShow.shape[0] / ImageShow.shape[1])
+            self.ImageShow = DahengCamera.rawImageUpdateList[0]
+            ImageRatio = float(self.ImageShow.shape[0] / self.ImageShow.shape[1])
             image_width = self.ImageWidthInGraphicsView
-            show = cv2.resize(ImageShow, (image_width, int(image_width * ImageRatio)))
-            show = cv2.cvtColor(show, cv2.COLOR_BGR2RGB)  # 视频色彩转换回RGB，这样才是现实的颜色
-            showImage = QImage(show.data, show.shape[1], show.shape[0],
-                            QImage.Format_RGB888)  # 把读取到的视频数据变成QImage形式
-            item = QGraphicsPixmapItem(QPixmap.fromImage(showImage))
+            show = cv.resize(self.ImageShow, (image_width, int(image_width * ImageRatio)))
+            # show = cv.cvtColor(show, cv.COLOR_BGR2RGB)  # 视频色彩转换回RGB，这样才是现实的颜色
+            self.showImage = QImage(show.data, show.shape[1], show.shape[0],
+                                    QImage.Format_RGB888)  # 把读取到的视频数据变成QImage形式
+            item = QGraphicsPixmapItem(QPixmap.fromImage(self.showImage))
             self.scene.clear()
             self.scene.addItem(item)
             self.scene.setSceneRect(0, 0, image_width + 1, image_width * ImageRatio + 1)
@@ -81,4 +86,4 @@ if __name__ == '__main__':
     window = MainWindow()
     window.show()
 
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

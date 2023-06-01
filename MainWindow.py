@@ -1,48 +1,69 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+# -*- coding: utf-8 -*-
 
+################################################################################
+## Form generated from reading UI file 'designerKMNLXw.ui'
+##
+## Created by: Qt User Interface Compiler version 6.5.0
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QGraphicsView, QGroupBox, QLabel,
+    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
+    QStatusBar, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(932, 651)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.graphicsView = QtWidgets.QGraphicsView(self.centralwidget)
-        self.graphicsView.setGeometry(QtCore.QRect(10, 40, 683, 512))
-        self.graphicsView.setDragMode(QtWidgets.QGraphicsView.ScrollHandDrag)
-        self.graphicsView.setObjectName("graphicsView")
-        self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox.setGeometry(QtCore.QRect(700, 0, 221, 171))
-        self.groupBox.setObjectName("groupBox")
-        self.pushButton_OpenCamera = QtWidgets.QPushButton(self.groupBox)
-        self.pushButton_OpenCamera.setGeometry(QtCore.QRect(10, 110, 101, 28))
-        self.pushButton_OpenCamera.setObjectName("pushButton_OpenCamera")
-        self.pushButton_CloseCamera = QtWidgets.QPushButton(self.groupBox)
-        self.pushButton_CloseCamera.setGeometry(QtCore.QRect(110, 110, 101, 28))
-        self.pushButton_CloseCamera.setObjectName("pushButton_CloseCamera")
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(180, 560, 41, 16))
-        self.label_5.setObjectName("label_5")
-        self.label_FPS = QtWidgets.QLabel(self.centralwidget)
-        self.label_FPS.setGeometry(QtCore.QRect(220, 560, 41, 16))
-        self.label_FPS.setObjectName("label_FPS")
+        if not MainWindow.objectName():
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(1000, 800)
+        self.centralwidget = QWidget(MainWindow)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.graphicsView = QGraphicsView(self.centralwidget)
+        self.graphicsView.setObjectName(u"graphicsView")
+        self.graphicsView.setGeometry(QRect(10, 40, 700, 500))
+        self.groupBox = QGroupBox(self.centralwidget)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setGeometry(QRect(760, 20, 200, 200))
+        self.pushButton_OpenCamera = QPushButton(self.groupBox)
+        self.pushButton_OpenCamera.setObjectName(u"pushButton_OpenCamera")
+        self.pushButton_OpenCamera.setGeometry(QRect(10, 30, 75, 30))
+        self.pushButton_CloseCamera = QPushButton(self.groupBox)
+        self.pushButton_CloseCamera.setObjectName(u"pushButton_CloseCamera")
+        self.pushButton_CloseCamera.setGeometry(QRect(110, 30, 75, 30))
+        self.label_5 = QLabel(self.centralwidget)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(180, 600, 53, 15))
+        self.label_FPS = QLabel(self.centralwidget)
+        self.label_FPS.setObjectName(u"label_FPS")
+        self.label_FPS.setGeometry(QRect(250, 600, 53, 15))
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 932, 26))
-        self.menubar.setObjectName("menubar")
+        self.menubar = QMenuBar(MainWindow)
+        self.menubar.setObjectName(u"menubar")
+        self.menubar.setGeometry(QRect(0, 0, 1000, 21))
         MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
+        self.statusbar = QStatusBar(MainWindow)
+        self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        QMetaObject.connectSlotsByName(MainWindow)
+    # setupUi
 
     def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.groupBox.setTitle(_translate("MainWindow", "CameraControl"))
-        self.pushButton_OpenCamera.setText(_translate("MainWindow", "OpenCamera"))
-        self.pushButton_CloseCamera.setText(_translate("MainWindow", "CloseCamera"))
-        self.label_5.setText(_translate("MainWindow", "FPS:"))
-        self.label_FPS.setText(_translate("MainWindow", "0"))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u76f8\u673a\u63a7\u5236", None))
+        self.pushButton_OpenCamera.setText(QCoreApplication.translate("MainWindow", u"\u6253\u5f00\u76f8\u673a", None))
+        self.pushButton_CloseCamera.setText(QCoreApplication.translate("MainWindow", u"\u62cd\u6444\u7167\u7247", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"FPS:", None))
+        self.label_FPS.setText(QCoreApplication.translate("MainWindow", u"0", None))
+    # retranslateUi
+
